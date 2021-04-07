@@ -70,12 +70,38 @@
 	
 	
 	<div style="width:800px; margin:0 auto; text-align:justify;">
-            Image animation consists of generating a video sequence so that an object in a source image is animated according to the motion of a driving video.
-            Our framework addresses this problem without using any annotation or prior information about the specific object to animate.  Once trained on a set of videos depicting
-            objects of the same category (<i>e.g.</i> faces, human bodies), our method can be applied to any object of this class. To achieve this, we decouple appearance and motion
-            information using a self-supervised formulation.  To support complex motions, we use a representation consisting of a set of learned keypoints along with their
-            local affine transformations. A generator network models occlusions arising during target motions and combines the appearance extracted from the source image and
-            the motion derived from the driving video. Our framework scores best on diverse benchmarks and on a variety of object categories
+            This 3DOF Robot Arm applies trigonometric formulas in order to get to a designated point within its range, proving an easier methor of robot control.
+            
+	    The following method works for robot arms with two degrees of vertical freedom and one degree of horizontal freedom. It takes a given point within the Robots maximum range,
+	    and then uses trigonometry to calculate angles for both motors.
+
+First, the Robots maximum range is designated by a circle with a radius of L1+L2.</div>
+
+
+<table align=center width=300px>
+	 <tr>
+	  <td align=center width=50px>
+	   <center>
+	    <span style="font-size:24px">
+	     <img src="For_1.png" alt="Area Formula for the maximum range of an unconstrained 2DOF Robot Arm">
+	    </span>
+	   </center>
+	  </td>
+	  <td align=center width=50px>
+	   <center>
+	    <span style="font-size:24px">
+		<img src="IM_1.png" alt="Area Graphic for the maximum range of an unconstrained 2DOF Robot Arm">
+	    </span>
+	   </center>
+	  </td>
+        </table>
+
+
+<div style="width:800px; margin:0 auto; text-align:justify;">
+The maximum range is shortened however, if both joints have 180 degree motor. In this case, the maximum range would be a the following area:  π(L1+L2)²/2
+
+With an area (B) in the upper semicircle of π L1^2 where it can not reach, and another area (A) 
+ in the lower semicircle of π L1^2 where it can reach.
        </div>
         
 		
