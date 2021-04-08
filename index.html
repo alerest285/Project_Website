@@ -135,11 +135,18 @@ Given a point D within the non-red area of the circle, a circle with radius L1 i
 	<br>
 	<pre><code>"
 area = (0.25)*(math.sqrt((d+r0+r1)*(d+r0-r1)*(d-r0+r1)*(-d+r0+r1)))
+
 apoX = ((x0+x1)/(2))+(((x1-x0)*(r0**2-r1**2))/(2*(d**2)))-(2*(y0-y1)/(d**2)*area)
-x3 = ((x0 + x1) / (2)) + (((x1 - x0) * (r0 ** 2 - r1 ** 2)) / (2 * (d ** 2))) + (2 * (y0 - y1) / (d ** 2) * area)
-y3 = ((y0 + y1) / (2)) + (((y1 - y0) * (r0 ** 2 - r1 ** 2)) / (2 * (d ** 2))) - (2 * (x0 - x1) / (d ** 2) * area)
-bpoY = ((y0 + y1) / (2)) + (((y1 - y0) * (r0 ** 2 - r1 ** 2)) / (2 * (d ** 2))) + (2 * (x0 - x1) / (d ** 2) * area)		
-"	
+
+x3 = ((x0 + x1) / (2)) + (((x1 - x0) * (r0 ** 2 - r1 ** 2)) / (2 * (d ** 2))) + 
+(2 * (y0 - y1) / (d ** 2) * area)
+
+y3 = ((y0 + y1) / (2)) + (((y1 - y0) * (r0 ** 2 - r1 ** 2)) / (2 * (d ** 2))) - 
+(2 * (x0 - x1) / (d ** 2) * area)
+
+bpoY = ((y0 + y1) / (2)) + (((y1 - y0) * (r0 ** 2 - r1 ** 2)) / (2 * (d ** 2))) +
+(2 * (x0 - x1) / (d ** 2) * area)		
+	
         </code></pre>
         <i> Code for determining the left most intercept. (x0 and y0 are 0. y1 and x1 are the x and y coordinates of D.</i>
        </div>
@@ -224,7 +231,7 @@ sync with the port the Arduino is connected on,in this case it is connected port
 	<br>
 	<div style="width:800px; margin:0 auto; text-align:justify;">
 <pre><code>
-"#include <Servo.h>
+#include <Servo.h>
 
 Servo servo0;
 Servo servo1;
@@ -258,8 +265,6 @@ void loop(){
       servo2.write(servo2.read());
   }
 }
-		
-"	
         </code></pre>
 	    
 	    </div>
