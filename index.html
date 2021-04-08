@@ -156,7 +156,11 @@ bpoY = ((y0 + y1) / (2)) + (((y1 - y0) * (r0 ** 2 - r1 ** 2)) / (2 * (d ** 2))) 
 	
 	
 <div style="width:800px; margin:0 auto; text-align:justify;">
-After the intersection point is measured, its  X and Y coordinates are used in the following equation to determine the angle of Link 1 respective to the ground: an1 = 180 - math.atan(abs(y3) / abs(x3)) * (180 / math.pi) It then determines the angle for the second motor using the coordinates of the D point and the lenghts of both Linkages: an2 = math.acos((math.pow(r1, 2) + math.pow(r0, 2) - math.pow(d, 2)) / (2 * r0 * r1)) * (180 / math.pi)
+After the intersection point is measured, its  X and Y coordinates are used in the following equation to 
+determine the angle of Link 1 respective to the ground: an1 = 180 - math.atan(abs(y3) / abs(x3)) * (180 / math.pi) <br>
+It then determines the angle for the second motor using the coordinates of the D point and the lenghts of both Linkages: an2 
+= math.acos((math.pow(r1, 2) + math.pow(r0, 2) - math.pow(d, 2)) / (2 * r0 * r1)) * (180 / math.pi) <br>
+	<br>
 
 The final step is to calculate what angle a full-rotation motor would need to rotate to be parallel to the ground: an3 = an1 + math.acos((math.pow(d, 2) + math.pow(r0, 2) - math.pow(r1, 2)) / (2 * r0 * d)) * (180 / math.pi) + math.acos((pow(r1, 2) + math.pow(d, 2) - math.pow(r0, 2)) / (2 * r1 * d)) * (180 / math.pi).
 The code detects in what Quadrant point D is and adjusts the equations respectively.
