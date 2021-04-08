@@ -9,6 +9,19 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+		   
+		   
+		   
+		   code {font-size: 120%;}
+		
+		
+		pre code {
+			background-color: #eee;
+			border: 1px solid #999;
+			display: block;
+			padding: 20px;
+		}
+		
 </style>
     </head>
 <body>
@@ -190,8 +203,51 @@ a graphic of the pin connections to the microcontroller. The Python code needs t
 sync with the port the Arduino is connected on,in this case it is connected port "/dev/ttyACM0".
        </div>
         
+	<img src="graphic.png" alt="Arduino pin connection graphic" class="center" style="width:800px;">
+	<div style="width:800px; margin:0 auto; text-align:justify;">
+        <i> CArduino pin connection graphic.</i>
 		
-	
+	<code>
+"#include <Servo.h>
+
+Servo servo0;
+Servo servo1;
+Servo servo2;
+
+// create array
+int incoming[2];
+
+void setup(){
+  Serial.begin(9600);
+
+  servo0.attach(5);
+  servo1.attach(3);
+  servo2.attach(6);
+}
+
+void loop(){
+  while(Serial.available() >= 3){
+    // fill array
+    for (int i = 0; i < 3; i++){
+      incoming[i] = Serial.read();
+    }
+    if (incoming[0] != 255 and incoming[1] != 255 and incoming[2] != 255){
+      servo0.write(incoming[0]);
+      servo1.write(incoming[1]);
+      servo2.write(incoming[2]);
+    }
+    else
+      servo0.write(servo0.read());
+      servo1.write(servo1.read());
+      servo2.write(servo2.read());
+  }
+}
+		
+		"
+		
+		
+		
+        </code>
 
 			
 </body>
