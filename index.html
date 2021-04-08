@@ -90,12 +90,12 @@ img {
 	
 	
 	<div style="width:800px; margin:0 auto; text-align:justify;">
-            This 3DOF Robot Arm applies trigonometric formulas in order to get to a designated point within its range, proving an easier methor of robot control.
+            This 3DOF Robot Arm applies trigonometric formulas in order to get to a designated point within its range, proving an easier method of robot control.
             
-	    The following method works for robot arms with two degrees of vertical freedom and one degree of horizontal freedom. It takes a given point within the Robots maximum range,
+	    The following method works for Robots with two degrees of vertical freedom and one degree of horizontal freedom. It takes a given point within the Robot's maximum range,
 	    and then uses trigonometry to calculate angles for both motors.
 
-First, the Robots maximum range is designated by a circle with a radius of L1+L2.</div>
+First, the Robot's maximum range is designated by a circle with a radius of Link 1+Link 2.</div>
 
 <br>
 <table align=center width=300px>
@@ -118,12 +118,12 @@ First, the Robots maximum range is designated by a circle with a radius of L1+L2
 <br>
 
 <div style="width:800px; margin:0 auto; text-align:justify;">
-The maximum range is shortened however, if both joints have 180 degree motor. In this case, the maximum range would be a the following area:  π(L1+L2)²/2
+The maximum range is shortened however, if both joints have 180 degree motor. In this case, the maximum range would be a the following area:  π(L1+L2)²/2<br>
 
 With an area (B) in the upper semicircle of π L1^2 where it can not reach, and another area (A) 
- in the lower semicircle of π L1^2 where it can reach.
+ in the lower semicircle of π L1^2 where it can reach.<br>
 	
-If L1 >= L2, restrictions apply for another blindspot, a small circle of radius L1-L2, where the robot cannot reach. This circle has the same centerpoint 
+If L1 >= L2, restrictions apply for another blindspot, a small circle of radius L1-L2, where the robot cannot reach. This circle has the same centerpoint <br>
 as the maximum range of the robot.
 
 Given a point D within the non-red area of the circle, a circle with radius L1 is formed with D as its centerpoint. A second circle with radius L2 is formed at the center of the maximum range, and the points where these two circles intersect is calculated. Depending on the rotation of the Robot arm, the right most intersect is selected as input for the algorithm.
@@ -132,9 +132,15 @@ Given a point D within the non-red area of the circle, a circle with radius L1 i
 	<br>
 	<br>
 	<br>
-	<img src="code1.png" alt="Code for determining the left most intercept" class="center" style="width:800px;">
-	<div style="width:800px; margin:0 auto; text-align:justify;">
-        <i> Code for determining the left most intercept.</i>
+	<pre><code>"
+area = (0.25)*(math.sqrt((d+r0+r1)*(d+r0-r1)*(d-r0+r1)*(-d+r0+r1)))
+apoX = ((x0+x1)/(2))+(((x1-x0)*(r0**2-r1**2))/(2*(d**2)))-(2*(y0-y1)/(d**2)*area)
+x3 = ((x0 + x1) / (2)) + (((x1 - x0) * (r0 ** 2 - r1 ** 2)) / (2 * (d ** 2))) + (2 * (y0 - y1) / (d ** 2) * area)
+y3 = ((y0 + y1) / (2)) + (((y1 - y0) * (r0 ** 2 - r1 ** 2)) / (2 * (d ** 2))) - (2 * (x0 - x1) / (d ** 2) * area)
+bpoY = ((y0 + y1) / (2)) + (((y1 - y0) * (r0 ** 2 - r1 ** 2)) / (2 * (d ** 2))) + (2 * (x0 - x1) / (d ** 2) * area)		
+"	
+        </code></pre>
+        <i> Code for determining the left most intercept. (x0 and y0 are 0. y1 and x1 are the x and y coordinates of D.</i>
        </div>
 	
 	<br>
