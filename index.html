@@ -149,7 +149,7 @@ The code detects in what Quadrant point D is and adjusts the equations respectiv
 	  <td align=center width=50px>
 	   <center>
 	    <span style="font-size:24px">
-		<p><i> Quadrant 1</i></p>
+		<p>Quadrant 1</p>
 	    </span>
 	   </center>
 	  </td>
@@ -172,11 +172,23 @@ The code detects in what Quadrant point D is and adjusts the equations respectiv
 	  <td align=center width=50px>
 	   <center>
 	    <span style="font-size:24px">
-		<p> <i>Quadrant 2</i></p>
+		<p>Quadrant 2</p>
 	    </span>
 	   </center>
 	  </td>
         </table>
+	
+	
+	<div style="width:800px; margin:0 auto; text-align:justify;">
+The value of the angles is transmitted real time to the arduino via its serial port. 
+This communication has a delay of 10ms per instruction. The arduino recieves this 
+information and uses its write function to move the connected servo motors to the 
+instructed angles. Because the three sevos have a high torque, an extra power source 
+is needed in some cases. This powersource, which can be several AA bateries with a 
+combined voltage of 6V, is connected to the ground pin of the arduino. The following is 
+a graphic of the pin connections to the microcontroller. The Python code needs to be in 
+sync with the port the Arduino is connected on,in this case it is connected port "/dev/ttyACM0".
+       </div>
         
 		
 	
